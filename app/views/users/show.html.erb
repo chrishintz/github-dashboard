@@ -1,0 +1,7 @@
+<%= image_tag current_user.avatar_url %>
+<h1><%= @github_user.name %></h1>
+<b><%= @github_user.email %></b>
+<%= @github_user.id %>
+<%= @github_user.location %>
+<%= @github_user.followers %>
+<%= link_to "Github", @github_user.html_url %>

@@ -5,13 +5,10 @@ class UsersController < ApplicationController
   end
 
   def data
-    render json: [
-      {flavor: "Cherry", votes: rand(100)},
-      {flavor: "Apple", votes: rand(100)},
-      {flavor: "Pumpkin", votes: rand(100)},
-      {flavor: "Strawberry Rhubarb", votes: rand(100)},
-      {flavor: "Blackberry", votes: rand(100)},
-    ]    
+    @events = current_user.client.user_events(current_user.username, :per_page => 300)
+    render json: @events.to_json
+    # @data = @github_user.group_by{|repo| repo["language"]}
+    # render json: @data
   end
 
 end

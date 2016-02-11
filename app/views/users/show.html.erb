@@ -1,7 +1,20 @@
-<%= image_tag current_user.avatar_url %>
-<h1><%= @github_user.name %></h1>
-<b><%= @github_user.email %></b>
-<%= @github_user.id %>
-<%= @github_user.location %>
-<%= @github_user.followers %>
-<%= link_to "Github", @github_user.html_url %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-3 col-md-6">
+        <div class="well well-sm">
+            <div class="col-sm-6 col-md-6">
+              <%= image_tag current_user.avatar_url, class: "img-rounded img-responsive"%>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <h3><%= @github_user.name %></h3>
+              <small><%= @github_user.location %></small>
+              <p class="user-paragraph">
+                <%= @github_user.email %>
+                <br>
+                <a href="#{@github_user.html_url}" class="email-link">Github</a>
+              </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -12,4 +12,12 @@ class UsersController < ApplicationController
     render json: @events
   end
 
+  def languages
+    @languages = current_user.client.repositories
+    @languages = @languages.group_by do |language|
+      language["language"]
+    end
+    render json: @languages
+  end
+
 end

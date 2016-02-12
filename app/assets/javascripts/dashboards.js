@@ -7,10 +7,6 @@ $(function() {
       eventArray.push({name: key, y: events[key].length});
     }
 
-    // var eventData = response.map(function(events) {
-    //   return {name: events.type, y: events.count};
-    // });
-
     $("#chart-container").highcharts({
       chart: {
         type: "pie"

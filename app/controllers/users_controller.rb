@@ -10,8 +10,6 @@ class UsersController < ApplicationController
       type["type"]
     end
     render json: @events
-    # @data = @github_user.group_by{|repo| repo["language"]}
-    # render json: @data
   end
 
 end

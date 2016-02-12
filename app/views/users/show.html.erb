@@ -8,17 +8,17 @@
           <div class="col-sm-6 col-md-4">
             <h3><%= @github_user.name %></h3>
             <small><%= @github_user.location %></small>
-            <p class="user-paragraph">
-              <%= @github_user.email %>
-              <br>
-              <a href="#{@github_user.html_url}" class="email-link">Github</a>
-              <%= @event_count %>
-            </p>
+            <p class="user-paragraph"><%= @github_user.email %></p>
+            <a href="#{@github_user.html_url}" class="email-link">Github</a>
+            <p>Followers: <%= @github_user.followers %></p>
+            <p>Following: <%= @github_user.following %></p>
+            <p>Total # of Gists: <%= @github_user.public_gists %></p>
+            <p>Total # of public_repos: <%= @github_user.public_repos %></p>
           </div>
       </div>
     </div>
   </div>
-  <div id="chart-container"></div>
-  <div id="chart-two"></div>
+  <div id="chart-container" class="charts"></div>
+  <div id="chart-two" class="charts"></div>
 
 </div>

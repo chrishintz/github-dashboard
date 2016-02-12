@@ -1,21 +1,26 @@
 $(function() {
-  $.get("/users/data", function(response){
-    console.log(response);
+  $.get("/users/data", function(events){
+    console.log(events);
 
-    var pieData = response.map(function(pie) {
-      return {name: pie.flavor, y: pie.votes};
-    });
+    var eventArray = [];
+    for (var key in events) {
+      eventArray.push({name: key, y: events[key].length});
+    }
+
+    // var eventData = response.map(function(events) {
+    //   return {name: events.type, y: events.count};
+    // });
 
     $("#chart-container").highcharts({
       chart: {
         type: "pie"
       },
       title: {
-        text: "Favorite Pies"
+        text: "User Events"
       },
       series: [{
-        name: "Pies",
-        data: pieData
+        name: "Events",
+        data: eventArray
       }]
     });
   });

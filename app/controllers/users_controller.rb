@@ -6,7 +6,10 @@ class UsersController < ApplicationController
 
   def data
     @events = current_user.client.user_events(current_user.username, :per_page => 300)
-    render json: @events.to_json
+    @events = @events.group_by do |type|
+      type["type"]
+    end
+    render json: @events
     # @data = @github_user.group_by{|repo| repo["language"]}
     # render json: @data
   end

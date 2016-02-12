@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
     @client ||= Octokit::Client.new(access_token: self.token)
   end
 
-  # def authenticated?
-  #   !!session[:access_token]
-  # end
+  def event_count
+    @event_count = @events.group(:type).count
+  end
 
 end
